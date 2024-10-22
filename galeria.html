@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Arial", sans-serif;
+            color: white;
+        }
+        
+        body {
+            background-image: url("12666_13-10-22 (1).jpg");
+            background-size: cover;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            padding: 40px; /* Añadido para evitar que el contenido toque los bordes de la pantalla */
+        }
+
+        .box {
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 6px rgba(250, 250, 250, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(255, 255, 255, 0.15);
+        }
+
+        .box img {
+            margin: 30px;
+            width: 200px;
+            height: auto;
+            
+        }
+
+        .box p {
+            padding: 10px;
+            text-align: center;
+        }
+        .box1 img{
+            width: 400px;
+            height: auto;
+        }
+        
+        .box2 {
+            position: relative;
+            width: 100%; /* Ajusta según sea necesario */
+            height: 300px; /* Ajusta según sea necesario */
+        }
+
+        .img1 {
+            position: absolute;
+            top: 0;
+            left: 0; /* Alinea a la izquierda para estar junto a img2 */
+        }
+        .img2 {
+            position: absolute;
+            top: 0;
+            left: 50%; /* Alinea a la derecha de img1 */
+            transform: translateX(-50%);
+        }
+        
+        .img3 {
+            position: absolute;
+            top: 320px;
+            left: 0; /* Alinea a la izquierda para estar junto a img2 */
+        }
+
+        .img4 {
+            position: absolute;
+            top: 320px;
+            left: 50%; /* Alinea a la derecha de img1 */
+            transform: translateX(-50%);
+        }
+
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2d2203;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn:hover {
+            background-color: #d49a00;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+            <img src="55b6ca47-6a71-4508-9f89-a7d8bcc871a2.jpg" alt="Imagen de tele con conexión HDMI a play 4">
+            <br>
+            <p>  El garito tiene 2 TV</p>
+            <p>  con videojuegos & streaming</p>
+            <br>
+        
+        </div>
+    </div>
+    <div class="box">
+        <div class="box2">
+            <img src="IMG-20240718-WA0173.jpg" alt="Otra imagen" class="img1">
+            <img src="IMG-20240718-WA0194.jpg" alt="tak" class="img2">
+            <img src="IMG-20240718-WA0224.jpg" alt="tuk" class="img3">
+            <img src="IMG-20240718-WA0177.jpg"alt="w" class="img4">
+            
+        </div>
+        
+    </div>
+    <div class="btn-section">
+        <a href="dochabitual.html" class="btn">Menú Principal</a>
+    </div>
+</body>
+</html>
