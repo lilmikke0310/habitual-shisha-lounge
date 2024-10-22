@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Arial", sans-serif;
+            color: white;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.55em;
+            margin-top: 5px;
+        }
+
+        p, li {
+            font-size: 1.3em;
+            margin: 2px;
+        }
+
+        .card {
+            width: 350px;
+            background-color: #efefef;
+            border: none;
+            transition: all 0.5s;
+        }
+
+        .image img {
+            transition: all 0.5s;
+        }
+
+        .image:hover img {
+            transform: scale(1.1);
+        }
+
+        .name, .number, .follow {
+            font-weight: bold;
+        }
+
+        .idd, .idd1 {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .btn1 {
+            height: 40px;
+            width: 150px;
+            border: none;
+            background-color: #000;
+            color: #aeaeae;
+            font-size: 15px;
+        }
+
+        .text span {
+            color: #545454;
+            font-weight: 500;
+        }
+
+        .icons i {
+            margin-right: 10px;
+        }
+
+        .join {
+            color: #a0a0a0;
+            font-weight: bold;
+        }
+
+        .date {
+            background-color: #ccc;
+        }
+
+        .btn {
+            width: 100%;
+            background-color: white;
+        }
+
+        .text {
+            background-color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .struct > div, .btn {
+            border-radius: 50px !important;
+        }
+
+        .menu-item {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(250, 250, 250, 0.15);
+            margin: 8px;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(183, 182, 182, 0.1);
+        }
+
+        .grid-contenedor {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+        }
+
+        /* Secciones específicas */
+        #batidos {
+            display: grid;
+            grid-template-columns: 30% 70%; /* 30% para la lista y 70% para las imágenes */
+            gap: 20px; /* Espacio entre los elementos del grid */
+        }
+
+        #batidos .menu-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #batidos .menu-list ul {
+            list-style-type: none; /* Elimina los puntos de la lista */
+            padding: 0; /* Elimina el padding por defecto */
+            margin: 0; /* Elimina el margin por defecto */
+        }
+
+        #batidos .menu-list li {
+            margin-bottom: 10px; /* Espacio entre los elementos de la lista */
+        }
+
+        #batidos .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
+            gap: 20px; /* Espacio entre las imágenes */
+        }
+
+        #batidos .image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #mojitos {
+            display: grid;
+            grid-template-columns: 70% 30%; 
+            gap: 20px; /* Espacio entre los elementos del grid */
+        }
+
+        #mojitos .mojitos-img {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual ancho */
+            gap: 20px; /* Espacio entre las imágenes */
+        }
+
+        #mojitos .mojitos-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #mojitos .mojitos-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra verticalmente el contenido */
+        }
+
+        #mojitos .mojitos-list h3 {
+            margin: 0 0 10px 0; /* Margin inferior para el título */
+        }
+
+        #mojitos .mojitos-list p {
+            margin: 0; /* Elimina el margin por defecto */
+            padding: 5px 0; /* Espacio superior e inferior para los elementos */
+        }
+
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .drinks-grid .menu-item h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+        .drinks-grid .menu-item p {
+            margin: 5px 0;
+            color: #ffffff;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: (1, 1fr);
+            gap: 10px;
+        }
+
+        .comida-item {
+            text-align: center;
+        }
+        .comida-item img {
+            width: 20%;
+            height: auto;
+        }
+
+    .gridfood {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.gridit {
+    text-align: center;
+}
+
+.gridit img {
+    width: 100%;
+    height: auto;
+}
+
+        .menu-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu-item ul li {
+            margin: 5px 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            background-image: url("12666_13-10-22 (1).jpg");
+            background-size: cover;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            width: 300%;
+            transition: transform 0.5s ease;
+            transform: translateX(-100vw); /* Default to center */
+        }
+
+        .section {
+            flex: 1;
+            min-width: 100vw;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .section h2 {
+            text-align: center;
+        }
+
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 160px;
+            height: 30px;
+            background-color: #f0f0f0;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .button-container button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            flex: 1;
+            height: 100%;
+        }
+
+        .indicator {
+            width: 15px;
+            height: 15px;
+            background-color: #ff5e00;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.5s ease;
+        }
+
+        .position-0 .indicator {
+            transform: translate(-150%, -50%);
+        }
+
+        .position-1 .indicator {
+            transform: translate(-50%, -50%);
+        }
+
+        .position-2 .indicator {
+            transform: translate(50%, -50%);
+        }
+        
+        /* Especificando tamaños diferentes para cada imagen */
+        .menu-item img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Cachimbas */
+        #cachimbasSection .imagen img {
+            width: 50%; /* Ajusta el tamaño según sea necesario */
+        }
+
+        /* Batidos */
+        #batidos .image-grid img:first-child {
+            width: 80%; /* Ajusta el tamaño según sea necesario */
+        }
+        #batidos .image-grid img:nth-child(2) {
+            width: 60%; /* Ajusta el tamaño según sea necesario */
+        }
+        #batidos .image-grid img:nth-child(3) {
+            width: 70%; /* Ajusta el tamaño según sea necesario */
+        }
+
+        /* Mojitos */
+        #mojitos .mojitos-img img:first-child {
+            width: 50%; /* Ajusta el tamaño según sea necesario */
+        }
+        #mojitos .mojitos-img img:nth-child(2) {
+            width: 40%; /* Ajusta el tamaño según sea necesario */
+        }
+
+        /* Comida */
+        #comidaSection img:first-child {
+            width: 50%; /* Ajusta el tamaño según sea necesario */
+        }
+        #comidaSection img:nth-child(2) {
+            width: 60%; /* Ajusta el tamaño según sea necesario */
+        }
+        #comidaSection img:nth-child(3) {
+            width: 70%; /* Ajusta el tamaño según sea necesario */
+        }
+        #comidaSection img:nth-child(4) {
+            width: 80%; /* Ajusta el tamaño según sea necesario */
+        }
+
+        .return-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #2d2203;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.return-button:hover {
+    background-color: #d49a00;
+}
+    </style>
+</head>
+<body>
+    <div class="container" id="menuContainer">
+        <!-- Sección Cachimbas -->
+        <div class="section" id="cachimbasSection">
+            <h2>Cachimbas 8€</h2>
+            <p><strong>* Sabores</strong></p>
+            <div class="menu-items">
+                <div class="grid-contenedor">
+                    <div class="grid-col">
+                        <div class="menu-item">
+                            <h3>Mentolados</h3>
+                            <ul>
+                                <li>Figth</li>
+                                <li>Sexy green</li>
+                                <li>Brutal</li>
+                            </ul>
+                        </div>
+                        <div class="menu-item">
+                            <h3>Dulces</h3>
+                            <ul>
+                                <li>Tarta queso</li>
+                                <li>Arroz con leche</li>
+                                <li>Kafayayo</li>
+                                <li>Chao bella</li>
+                                <li>Kinder</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid-col">
+                        <div class="menu-item"> 
+                            <div class="imagen">
+                                <img src="IMG-20240718-WA0225(1).jpg" alt="Imagen Cachimbas">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-col">
+                        <div class="menu-item">
+                            <h3>Afrutados</h3>
+                            <ul>
+                                <li>Love 66</li>
+                                <li>Mi amor</li>
+                                <li>Big bay</li>
+                                <li>Pinkman</li>
+                                <li>Panamino</li>
+                                <li>Black nana</li>
+                                <li>African Quin</li>
+                                <li>Ragnar</li>
+                                <li>Hawai</li>
+                                <li>Wild punch</li>
+                                <li>Miss jossy</li>
+                                <li>Peery punch</li>
+                            </ul>
+                        </div>
+                        <div class="menu-item">
+                            <h3>Cítricos</h3>
+                            <ul>
+                                <li>Casper</li>
+                                <li>Lemenciaga</li>
+                                <li>Limón</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="return-button" onclick="goBack()">Retorno</button>
+        </div>
+
+        <!-- Sección Bebidas -->
+        <div class="section" id="bebidasSection">
+            <h2>Bebidas</h2>
+            <div class="menu-items">
+                <div class="menu-item" id="batidos">
+                    <div class="menu-list">
+                        <h3>Batidos 5€</h3>
+                        
+                        <ul>
+                            <li>Oreo</li>
+                            <li>Pantera rosa</li>
+                            <li>Kinder Bueno</li>
+                            <li>Lotus</li>
+                            <li>KitKat</li>
+                        </ul>
+                    </div>
+                    <div class="image-grid">
+                        <img src="IMG-20240718-WA0218(1)(1).png" alt="Batidos">
+                        <img src="IMG-20240718-WA0227(1)(1)(1)(1).png" alt="Batidos">
+                        <img src="IMG-20240718-WA0230(1)(1).png" alt="Batidos">
+                    </div>
+                </div>
+                <div class="menu-item" id="mojitos">
+                    <div class="mojitos-img">
+                        <img src="IMG-20240718-WA0223 (1)(1)(1).png" alt="Mojitos">
+                        <img src="IMG-20240718-WA0221 (1)(1)(1).png" alt="Mojitos">
+                    </div>
+                    <div class="mojitos-list">
+                        <h3>Mojitos 5€</h3>
+                        <p>Sandía</p>
+                        <p>Fresa</p>
+                        <p>Melón</p>
+                        <p>Clásico</p>
+                    </div>
+                </div>
+                <div class="drinks-grid">
+                    <div class="menu-item" id="copas"> 
+                        <h3>Copas 6,50€</h3>
+                        <p>Gin</p>
+                        <p>Rum</p>
+                        <p>Vodka</p>
+                        <p>Whisky</p>
+                    </div>
+                    <div class="menu-item" id="refrescos">
+                        <h3>Refrescos 2,50€</h3>
+                        <p>Coca-Cola</p>
+                        <p>Fanta</p>
+                        <p>Aquarius</p>
+                        <p>Nestea limón</p>
+                        <p>Nestea maracuyá</p>
+                        <p>Bifrutas paraíso</p>
+                        <p>Bifrutas tropical</p>
+                        <p>Royal Bliss</p>
+                        <p>Monster 2,90€</p>
+                    </div>
+                    <div class="menu-item" id="cerveza">
+                        <h3>Cerveza 3€</h3>
+                        <p>El Águila</p>
+                        <p>Heineken</p>
+                        <p>Radler</p>
+                        <p>Desperados</p>
+                        <p>Salitos</p> 
+                    </div>
+                </div>
+            </div>
+            <button class="return-button" onclick="goBack()">Retorno</button>
+        </div>
+
+<!-- Sección Comida -->
+<div class="section" id="comidaSection">
+    <h2>Comida</h2>
+    <div class="menu-items" id= "comidagrid">
+        <div class="menu-item">
+            <div class="gridfood">
+                <div class="gridit">
+                    <img src="IMG-20240718-WA0199(1).jpg" alt="Hamburguesa"> 
+                    <p>Hamburguesa - 6€</p>
+                </div>
+                <div class="gridit">
+                    <img src="85dfba41-dd76-4ddc-976b-ff56e385d751.jpg" alt="Taco"> 
+                    <p>Taco - 6€</p>
+                </div>
+                <div class="gridit">
+                    <img src="bd74a947-9c3f-4368-afa7-f9c531b2034b.jpg" alt="Pinchos morunos">
+                    <p>Pinchos morunos - 8€</p>
+                </div>
+                <div class="gridit">
+                    <img src="7fcdb941-e822-4c94-a09d-2e11c1c6c0f5.jpg" alt="Terner cheese fries">
+                    <p>Terner cheese fries - 5€</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="return-button" onclick="goBack()">Retorno</button>
+</div>
+</div>
+
+
+    <div class="button-container position-1" id="navButton">
+        <button onclick="scrollToSection(0)"></button>
+        <button onclick="scrollToSection(1)"></button>
+        <button onclick="scrollToSection(2)"></button>
+        <div class="indicator"></div>
+    </div>
+    
+    <script>
+        function scrollToSection(position) {
+            const container = document.getElementById('menuContainer');
+            container.style.transform = `translateX(-${position * 100}vw)`;
+
+            // Update button position class
+            const navButton = document.getElementById('navButton');
+            navButton.className = `button-container position-${position}`;
+        }
+    </script>
+    <script>
+        function goBack() {
+            window.location.href = 'dochabitual.html';
+        }
+    </script>
+    
+</body>
+</html>

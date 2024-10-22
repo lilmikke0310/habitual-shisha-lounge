@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú</title>
+  
+</head>
+<body>
+  <h1>Nuestro Delicioso Menú</h1>
+  <div id="menu-items">
+    <!-- Aquí se cargarán dinámicamente los elementos del menú desde el archivo XML -->
+  </div>
+
+  <script>
+    // Función para cargar y procesar el archivo XML
+    function cargarXML() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          procesarXML(this);
+        }
+      };
+      xhttp.open("GET", "menu.xml", true);
+      xhttp.send();
+    }
+
+    // Función para procesar el XML
+    function procesarXML(xml) {
+      var xmlDoc = xml.responseXML;
+      var menuItemsDiv = document.getElementById('menu-items');
+
+      // Procesar cachimbas
+      var cachimbas = xmlDoc.getElementsByTagName("cachimba");
+      var cachimbasDiv = document.createElement('div');
+      cachimbasDiv.className = 'menu-category';
+      cachimbasDiv.innerHTML = '<h3>Cachimbas</h3>';
+      for (var i = 0; i < cachimbas.length; i++) {
+        var nombre = cachimbas[i].getElementsByTagName("nombre")[0].childNodes[0].nodeValue;
+        var precio = cachimbas[i].getElementsByTagName("precio")[0].childNodes[0].nodeValue;
+        var itemDiv = document.createElement('div');
+        itemDiv.className = 'menu-item';
+        itemDiv.innerHTML = nombre + ' - ' + precio + '€';
+        cachimbasDiv.appendChild(itemDiv);
+      }
+      menuItemsDiv.appendChild(cachimbasDiv);
+
+      // Procesar refrescos
+      var refrescos = xmlDoc.getElementsByTagName("refresco");
+      var refrescosDiv = document.createElement('div');
+      refrescosDiv.className = 'menu-category';
+      refrescosDiv.innerHTML = '<h3>Refrescos</h3>';
+      for (var i = 0; i < refrescos.length; i++) {
+        var nombre = refrescos[i].getElementsByTagName("nombre")[0].childNodes[0].nodeValue;
+        var precio = refrescos[i].getElementsByTagName("precio")[0].childNodes[0].nodeValue;
+        var itemDiv = document.createElement('div');
+        itemDiv.className = 'menu-item';
+        itemDiv.innerHTML = nombre + ' - ' + precio + '€';
+        refrescosDiv.appendChild(itemDiv);
+      }
+      menuItemsDiv.appendChild(refrescosDiv);
+
+      // Procesar batidos
+      var batidos = xmlDoc.getElementsByTagName("batido");
+      var batidosDiv = document.createElement('div');
+      batidosDiv.className = 'menu-category';
+      batidosDiv.innerHTML = '<h3>Batidos</h3>';
+      for (var i = 0; i < batidos.length; i++) {
+        var nombre = batidos[i].getElementsByTagName("nombre")[0].childNodes[0].nodeValue;
+        var precio = batidos[i].getElementsByTagName("precio")[0].childNodes[0].nodeValue;
+        var itemDiv = document.createElement('div');
+        itemDiv.className = 'menu-item';
+        itemDiv.innerHTML = nombre + ' - ' + precio + '€';
+        batidosDiv.appendChild(itemDiv);
+      }
+      menuItemsDiv.appendChild(batidosDiv);
+
+      // Procesar cena
+      var cena = xmlDoc.getElementsByTagName("plato");
+      var cenaDiv = document.createElement('div');
+      cenaDiv.className = 'menu-category';
+      cenaDiv.innerHTML = '<h3>Cena</h3>';
+      for (var i = 0; i < cena.length; i++) {
+        var nombre = cena[i].getElementsByTagName("nombre")[0].childNodes[0].nodeValue;
+        var precio = cena[i].getElementsByTagName("precio")[0].childNodes[0].nodeValue;
+        var itemDiv = document.createElement('div');
+        itemDiv.className = 'menu-item';
+        itemDiv.innerHTML = nombre + ' - ' + precio + '€';
+        cenaDiv.appendChild(itemDiv);
+      }
+      menuItemsDiv.appendChild(cenaDiv);
+    }
+
+    // Llamar a la función cargarXML cuando la página se cargue
+    window.onload = cargarXML;
+
+  </script>
+</body>
+</html>
