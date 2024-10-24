@@ -373,56 +373,98 @@
     background-color: #d49a00;
 }
 
-        /* Media queries para la vista móvil (dispositivos con pantalla menor a 768px) */
+
+        /* Media Queries: Vista Móvil */
 @media (max-width: 768px) {
+    /* Ajustar el contenedor principal para vista móvil */
     .container {
-        flex-direction: column;
+        display: block;
         width: 100%;
-        transform: translateX(0); /* Asegura que todo quede alineado correctamente */
     }
 
+    /* Sección para cada contenido */
     .section {
         min-width: 100%;
         padding: 10px;
     }
 
-    .grid-contenedor {
-        grid-template-columns: 1fr; /* Una sola columna para facilitar la visualización en móvil */
+    /* Redimensionar los cards */
+    .card {
+        width: 100%;
+        background-color: #efefef;
     }
 
-    /* Ajuste para las imágenes en cachimbas */
-    #cachimbasSection .imagen img {
-        width: 80%; /* Reducir el tamaño de la imagen en dispositivos móviles */
+    /* Imágenes dentro de los cards */
+    .image img {
+        width: 100%;
     }
 
-    /* Batidos */
-    #batidos .image-grid img {
-        width: 100%; /* Las imágenes deben ocupar todo el ancho */
+    /* Ajustar la grilla a una sola columna */
+    .grid-contenedor, .drinks-grid, #batidos, #mojitos {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 
-    /* Mojitos */
-    #mojitos .mojitos-img {
-        grid-template-columns: 1fr; /* Cambia a una sola columna en móvil */
-    }
-    
-    /* Bebidas y otros elementos en el grid */
-    .drinks-grid {
-        grid-template-columns: 1fr; /* Una columna en móviles */
+    /* Ajustar la grilla de imágenes en la sección de batidos y mojitos */
+    #batidos .image-grid, #mojitos .mojitos-img {
+        grid-template-columns: 1fr;
     }
 
-    /* Comida */
-    .gridfood {
-        grid-template-columns: 1fr; /* Una columna en móviles */
+    /* Ajustar imágenes de batidos y mojitos en vista móvil */
+    #batidos .image-grid img, #mojitos .mojitos-img img {
+        width: 100%;
+        height: auto;
     }
 
-    /* Ajuste de la barra de navegación */
+    /* Ajustar los elementos de la lista de menús */
+    #batidos .menu-list, #mojitos .mojitos-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Modificar la barra de navegación en vista móvil */
     .button-container {
         width: 120px;
-        height: 40px;
+        height: 30px;
     }
 
     .button-container button {
         height: 100%;
+    }
+
+    /* Ajustar tamaños de texto */
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    p, li {
+        font-size: 1.1em;
+    }
+
+    /* Modificar el tamaño de las imágenes dentro de las secciones */
+    .comida-item img {
+        width: 80%;
+    }
+
+    /* Ajustar la barra de navegación fija */
+    .button-container {
+        bottom: 10px;
+    }
+
+    /* Centrar los elementos de las secciones en móvil */
+    .menu-item {
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Ajuste de botones */
+    .btn1 {
+        width: 100%;
+        font-size: 14px;
     }
 }
     </style>
