@@ -372,6 +372,59 @@
 .return-button:hover {
     background-color: #d49a00;
 }
+
+        /* Media queries para la vista móvil (dispositivos con pantalla menor a 768px) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        transform: translateX(0); /* Asegura que todo quede alineado correctamente */
+    }
+
+    .section {
+        min-width: 100%;
+        padding: 10px;
+    }
+
+    .grid-contenedor {
+        grid-template-columns: 1fr; /* Una sola columna para facilitar la visualización en móvil */
+    }
+
+    /* Ajuste para las imágenes en cachimbas */
+    #cachimbasSection .imagen img {
+        width: 80%; /* Reducir el tamaño de la imagen en dispositivos móviles */
+    }
+
+    /* Batidos */
+    #batidos .image-grid img {
+        width: 100%; /* Las imágenes deben ocupar todo el ancho */
+    }
+
+    /* Mojitos */
+    #mojitos .mojitos-img {
+        grid-template-columns: 1fr; /* Cambia a una sola columna en móvil */
+    }
+    
+    /* Bebidas y otros elementos en el grid */
+    .drinks-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+
+    /* Comida */
+    .gridfood {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+
+    /* Ajuste de la barra de navegación */
+    .button-container {
+        width: 120px;
+        height: 40px;
+    }
+
+    .button-container button {
+        height: 100%;
+    }
+}
     </style>
 </head>
 <body>
